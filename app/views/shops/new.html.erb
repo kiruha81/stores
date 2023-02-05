@@ -2,7 +2,7 @@
   <%= form_with model: @shop, url: shops_path, method: :post, local: true do |f| %>
     <div>題名：<%= f.text_field :title, size: "38" %></div>
     <div>店名：<%= f.text_field :shop_name, size: "38" %></div>
-    <div>画像：<%= f.file_field :image, accept: "image/*" %></div>
+    <div>画像：<%= f.file_field :shop_image, accept: "image/*" %></div>
     <div>説明：<%= f.text_area :body, size: "40x2" %></div>
     <%= f.submit "投稿！" %>
   <% end %>

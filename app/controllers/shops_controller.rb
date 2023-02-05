@@ -38,6 +38,8 @@ class ShopsController < ApplicationController
     redirect_to shops_path
   end
 
+  private
+
   def shop_params
     params.require(:shop).permit(:title, :shop_name, :shop_image, :body)
   end

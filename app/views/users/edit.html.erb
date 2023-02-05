@@ -1,2 +1,11 @@
 <h1>Users#edit</h1>
 <p>Find me in app/views/users/edit.html.erb</p>
+<%= form_with model: @user, url: user_path, method: :patch, local: true do |f| %>
+  <div>ユーザー名：<br><%= f.text_field :name %></div>
+  <div>紹介文：<br><%= f.text_field :introduction %></div>
+  <div>メールアドレス：<br><%= f.email_field :email %></div>
+  <div>プロフィール画像：<br><%= f.file_field :profile_image, accept: "image/*" %></div>
+  <div><%= f.submit "プロフィール更新" %></div>
+<% end %>
+<div><%= link_to "パスワード変更(仮)", new_user_password_path %></div>
+<div class="btn btn-danger"><%= link_to "退会する", user_path(@user), method: :delete, data: { confirm: "大丈夫ですか？" }, class: "text-white" %></div>
