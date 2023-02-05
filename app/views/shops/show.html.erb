@@ -1,11 +1,12 @@
-<h1>Shops#show</h1>
-<p>Find me in app/views/shops/show.html.erb</p>
-<%= link_to @shop.title, shop_path(@shop), class: "text-dark" %>
-<p><%= link_to "https://www.google.com/search?q=#{@shop.shop_name}&oq=&aqs=chrome.2.35i39i362l7j69i59i450.151197398j0j15&sourceid=chrome&ie=UTF-8" do %>
-  <%= image_tag @shop.get_shop_image(600, 600) %>
+題名：<%= link_to @shop.title, shop_path(@shop), class: "text-dark" %>
+<p><%= link_to "https://www.google.com/search?q=#{@shop.shop_name}&oq=&aqs=chrome.2.35i39i362l7j69i59i450.151197398j0j15&sourceid=chrome&ie=UTF-8" do %><p>
+  <p><%= image_tag @shop.get_shop_image(600, 600) %></p>
+  <p class="text-dark"><%= @shop.shop_name %></p>
 <% end %></p>
-<p><%= @shop.shop_name %></p>
-<p><%= @shop.body %></p>
+<p></p>
+<p>説明：<%= @shop.body %></p>
+<div id="goods_buttons_<%= @shop.id %>"><%= render "goods/good", shop: @shop, bads: @bads %></div>
+<div id="bads_buttons_<%= @shop.id %>"><%= render "bads/bad", shop: @shop %></div>
 <p><%=link_to user_path(@shop.user) do %>
   <%= image_tag @shop.user.get_profile_image(50, 50) %>
 <% end %></p>

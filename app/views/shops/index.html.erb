@@ -1,7 +1,5 @@
-<h1>Shops#index</h1>
-<p>Find me in app/views/shops/index.html.erb</p>
 <% @shops.each do |shop| %>
-  <%= link_to shop.title, shop_path(shop), class: "text-dark" %>
+  題名：<%= link_to shop.title, shop_path(shop), class: "text-dark" %>
     <p><%= link_to "https://www.google.com/search?q=#{shop.shop_name}&oq=&aqs=chrome.2.35i39i362l7j69i59i450.151197398j0j15&sourceid=chrome&ie=UTF-8" do %>
       <%= image_tag shop.get_shop_image(600, 600) %>
     <% end %></p>

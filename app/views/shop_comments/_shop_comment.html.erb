@@ -1,5 +1,6 @@
 <table>
   <tbody>
+    <td><%= "#{shop.shop_comments.count} 件のコメント" %></td>
     <% shop.shop_comments.each do |shop_comment| %>
     <tr>
       <td><%= link_to(shop.user) do %>

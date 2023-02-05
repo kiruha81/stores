@@ -2,6 +2,8 @@ class Shop < ApplicationRecord
   has_one_attached :shop_image
   belongs_to :user
   has_many :shop_comments, dependent: :destroy
+  has_many :goods
+  has_many :bads
 
   def get_shop_image(width, height)
     unless shop_image.attached?
@@ -10,4 +12,13 @@ class Shop < ApplicationRecord
     end
     shop_image.variant(resize_to_limit: [width, height]).processed
   end
+
+  def good_by?(user)
+    goods.exists?(user_id: user.id)
+  end
+
+  def bad_by?(user)
+    bads.exists?(user_id: user.id)
+  end
+
 end

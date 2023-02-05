@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_one_attached :profile_image
   has_many :shops, dependent: :destroy
   has_many :shop_comments, dependent: :destroy
+  has_many :goods
+  has_many :bads
 
   def get_profile_image(width, height)
     unless profile_image.attached?
