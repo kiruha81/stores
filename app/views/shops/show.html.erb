@@ -1,8 +1,16 @@
 <h1>Shops#show</h1>
 <p>Find me in app/views/shops/show.html.erb</p>
-<p><%= @shop.title %></p>
+<%= link_to @shop.title, shop_path(@shop), class: "text-dark" %>
+<p><%= link_to "https://www.google.com/search?q=#{@shop.shop_name}&oq=&aqs=chrome.2.35i39i362l7j69i59i450.151197398j0j15&sourceid=chrome&ie=UTF-8" do %>
+  <%= image_tag @shop.get_shop_image(600, 600) %>
+<% end %></p>
 <p><%= @shop.shop_name %></p>
-<p><%= image_tag @shop.get_shop_image(600, 600) %></p>
 <p><%= @shop.body %></p>
-<p><%= link_to "投稿を編集", edit_shop_path(@shop) %></p>
-<p><%= link_to "投稿を削除", shop_path(@shop), method: :delete, data: { confirm: "　⚠投稿は削除されます。\n　　よろしいですか？" } %></p>
+<p><%=link_to user_path(@shop.user) do %>
+  <%= image_tag @shop.user.get_profile_image(50, 50) %>
+<% end %></p>
+<p><%= link_to @shop.user.name, user_path(@shop.user), class: "text-dark" %></p>
+<% if @shop.user_id == current_user.id %>
+  <p><%= link_to "投稿を編集", edit_shop_path(@shop) %></p>
+  <p><%= link_to "投稿を削除", shop_path(@shop), method: :delete, data: { confirm: "　⚠投稿は削除されます。\n　　よろしいですか？" } %></p>
+<% end %>

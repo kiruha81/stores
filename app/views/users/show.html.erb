@@ -1,7 +1,19 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
 <p><%= image_tag @user.get_profile_image(70, 70) %></p>
-<p><%= @user.name %></p>
+<%= @user.name %>
+<%= link_to edit_user_path do  %>
+  <div class="btn btn-primary"><i class="fas fa-cog"></i></div>
+<% end %>
 <p><%= @user.introduction %></p>
-<p><%= link_to "プロフィール設定", edit_user_path %></p>
-<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+<% if @user.id == current_user.id %>
+  <p><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-secondary" %></p>
+<% end %>
+<% @shops.each do |shop| %>
+  <%= link_to shop.title, shop_path(shop), class: "text-dark" %>
+  <p><%= link_to "https://www.google.com/search?q=#{shop.shop_name}&oq=&aqs=chrome.2.35i39i362l7j69i59i450.151197398j0j15&sourceid=chrome&ie=UTF-8" do %>
+    <%= image_tag shop.get_shop_image(600, 600) %>
+  <% end %></p>
+  <p><%= shop.shop_name %></p>
+  <p><%= shop.body %></p>
+<% end %>
