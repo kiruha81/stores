@@ -20,5 +20,18 @@ class Shop < ApplicationRecord
   def bad_by?(user)
     bads.exists?(user_id: user.id)
   end
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @shop = Shop.where("title LIKE?","#{word}")
+    elsif search == "forward_match"
+      @shop = Shop.where("title LIKE?","#{word}%")
+    elsif search == "backward_match"
+      @Shop = Shop.where("title LIKE?","%#{word}")
+    elsif search == "partial_match"
+      @shop = Shop.where("title LIKE?","%#{word}%")
+    else
+      @shop = Shop.all
+    end
+  end
 
 end

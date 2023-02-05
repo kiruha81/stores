@@ -8,6 +8,7 @@
   <% end %></td>
   <td class="text-dark"><%= user.name %></td>
   <td class="text-dark"><%= user.introduction %></td>
+  <div class="follow-btn_<%= user.id %>"><%= render "relationships/relationships", user: user %></div>
   </tr>
 <% end %>
 </table>
