@@ -1,0 +1,8 @@
+<h1>Shops#show</h1>
+<p>Find me in app/views/shops/show.html.erb</p>
+<p><%= @shop.title %></p>
+<p><%= @shop.shop_name %></p>
+<p><%= image_tag @shop.get_shop_image(600, 600) %></p>
+<p><%= @shop.body %></p>
+<p><%= link_to "投稿を編集", edit_shop_path(@shop) %></p>
+<p><%= link_to "投稿を削除", shop_path(@shop), method: :delete, data: { confirm: "　⚠投稿は削除されます。\n　　よろしいですか？" } %></p>

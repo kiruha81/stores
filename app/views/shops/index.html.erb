@@ -1,0 +1,14 @@
+<h1>Shops#index</h1>
+<p>Find me in app/views/shops/index.html.erb</p>
+<%= @shops.each do |shop| %>
+  <p><%=link_to user_path(shop.user) do %>
+      <%= image_tag shop.user.get_profile_image(50, 50) %>
+    <% end %></p>
+  <p><%= link_to shop.user.name, user_path(shop.user) %></p>
+  <p><%= shop.title %></p>
+  <p><%= link_to shop.shop_name, "https://www.google.com/search?q=#{shop.shop_name}&oq=&aqs=chrome.2.35i39i362l7j69i59i450.151197398j0j15&sourceid=chrome&ie=UTF-8" %></p>
+  <p><%= link_to shop_path(shop) do %>
+      <%= image_tag shop.get_shop_image(600, 600) %>
+    <% end %></p>
+  <p><%= shop.body %></p>
+<% end %>
