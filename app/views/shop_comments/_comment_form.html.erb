@@ -1,0 +1,4 @@
+<%= form_with(model: [shop, shop_comment], local: false) do |f| %>
+  <td><%= f.text_area :comment, size: "48x1", placeholder: "コメントどうぞ" %></td>
+  <td><%= f.submit "コメントを送信", class: 'submit_btn' %></td>
+<% end %>

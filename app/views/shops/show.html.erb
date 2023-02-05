@@ -14,3 +14,5 @@
   <p><%= link_to "投稿を編集", edit_shop_path(@shop) %></p>
   <p><%= link_to "投稿を削除", shop_path(@shop), method: :delete, data: { confirm: "　⚠投稿は削除されます。\n　　よろしいですか？" } %></p>
 <% end %>
+<div id="comment_area_<%= @shop.id %>"><%= render 'shop_comments/shop_comment', shop: @shop, shop_comment: @shop_comment %></div>
+<div id="shop-comment"><%= render 'shop_comments/comment_form', shop: @shop, shop_comment: @shop_comment %></div>

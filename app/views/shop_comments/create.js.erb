@@ -1,0 +1,3 @@
+$("#comment_area_<%= @shop.id %>").html("<%= j(render 'shop_comments/shop_comment', shop: @shop) %>")
+$('#shop-comment').html("<%= j(render 'shop_comments/comment_form', shop: @shop, shop_comment: @shop_comment) %>")
+$("textarea").val('');

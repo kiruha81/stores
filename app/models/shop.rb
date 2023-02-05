@@ -1,6 +1,7 @@
 class Shop < ApplicationRecord
   has_one_attached :shop_image
   belongs_to :user
+  has_many :shop_comments, dependent: :destroy
 
   def get_shop_image(width, height)
     unless shop_image.attached?

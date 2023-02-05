@@ -1,0 +1,18 @@
+<table>
+  <tbody>
+    <% shop.shop_comments.each do |shop_comment| %>
+    <tr>
+      <td><%= link_to(shop.user) do %>
+        <%= image_tag shop_comment.user.get_profile_image(50, 50) %><br>
+        <div class='text-dark'><%= shop_comment.user.name %></div>
+        <% end %>
+      </td>
+      <td><%= shop_comment.comment %></td>
+      <td><%= shop_comment.created_at.strftime('%Y/%m/%d(%a) %R') %></td>
+        <% if shop_comment.user == current_user %>
+          <td><%= link_to '削除', shop_shop_comment_path(shop, shop_comment), method: :delete, data: { confirm: '本当に消します？' }, class: "btn btn-sm btn-danger", remote: true %></td>
+        <% end %>
+    <% end %>
+    </tr>
+  </tbody>
+</table>
