@@ -2,10 +2,10 @@ class GoodsController < ApplicationController
   def create
     @shop = Shop.find(params[:shop_id])
     good = current_user.goods.new(shop_id: @shop.id)
-    good.save
-    if @bad= Bad.find_by(user_id: current_user.id, shop_id: params[:shop_id])
-      @bad.destroy
+    if bad = Bad.find_by(user_id: current_user.id, shop_id: params[:shop_id])
+      bad.destroy
     end
+    good.save
   end
 
   def destroy

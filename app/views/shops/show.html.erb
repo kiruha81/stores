@@ -5,8 +5,12 @@
 <% end %></p>
 <p></p>
 <p>説明：<%= @shop.body %></p>
-<div id="goods_buttons_<%= @shop.id %>"><%= render "goods/good", shop: @shop, bads: @bads %></div>
-<div id="bads_buttons_<%= @shop.id %>"><%= render "bads/bad", shop: @shop %></div>
+<table>
+  <tr>
+    <td id="goods_buttons_<%= @shop.id %>"><%= render "goods/good", shop: @shop %></td>
+    <td id="bads_buttons_<%= @shop.id %>"><%= render "bads/bad", shop: @shop %></td>
+  </tr>
+</table>
 <p><%=link_to user_path(@shop.user) do %>
   <%= image_tag @shop.user.get_profile_image(50, 50) %>
 <% end %></p>
