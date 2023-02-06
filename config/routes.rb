@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get "search" => "searches#search"
   resources :users do
     resource :relationships, only: [:create, :destroy]
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' => 'relationships#followers', as: 'followers'
   end
   resources :shops do
     resources :shop_comments, only: [:create, :destroy]

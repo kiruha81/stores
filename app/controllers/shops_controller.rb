@@ -14,6 +14,12 @@ class ShopsController < ApplicationController
     @shop = Shop.find(params[:id])
     @user = @shop.user
     @shop_comment = ShopComment.new
+    if @bad = Bad.find_by(user_id: current_user.id, shop_id: params[:shop_id])
+      @bad.destroy
+    end
+    if @good = Good.find_by(user_id: current_user.id, shop_id: params[:shop_id])
+      @good.destroy
+    end
   end
 
   def index

@@ -2,13 +2,8 @@
 <p>Find me in app/views/users/index.html.erb</p>
 <table>
 <% @users.each do |user| %>
-<tr>
-  <td><%=link_to user_path(user) do %>
-    <%= image_tag user.get_profile_image(70, 70) %>
-  <% end %></td>
-  <td class="text-dark"><%= user.name %></td>
-  <td class="text-dark"><%= user.introduction %></td>
-  <div class="follow-btn_<%= user.id %>"><%= render "relationships/relationships", user: user %></div>
+<tr class="follow-btn_<%= user.id %>">
+  <%= render "relationships/relationships", user: user %>
   </tr>
 <% end %>
 </table>

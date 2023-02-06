@@ -3,7 +3,7 @@
     <p><%= link_to "https://www.google.com/search?q=#{shop.shop_name}&oq=&aqs=chrome.2.35i39i362l7j69i59i450.151197398j0j15&sourceid=chrome&ie=UTF-8" do %>
       <%= image_tag shop.get_shop_image(600, 600) %>
     <% end %></p>
-  <p><%= shop.shop_name %></p>
+  <p><%= shop.shop_name %></p><i class="far fa-thumbs-up text-dark"></i> <%= shop.goods.count %> <i class="far fa-thumbs-down text-dark"></i> <%= shop.bads.count %>
   <p><%= shop.body %></p>
     <p><%=link_to user_path(shop.user) do %>
       <%= image_tag shop.user.get_profile_image(50, 50) %>

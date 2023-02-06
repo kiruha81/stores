@@ -7,8 +7,7 @@
 <p>説明：<%= @shop.body %></p>
 <table>
   <tr>
-    <td id="goods_buttons_<%= @shop.id %>"><%= render "goods/good", shop: @shop %></td>
-    <td id="bads_buttons_<%= @shop.id %>"><%= render "bads/bad", shop: @shop %></td>
+    <td id="good_bad_buttons_<%= @shop.id %>"><%= render "shops/rate", shop: @shop, bad: @bad, good: @good %></td>
   </tr>
 </table>
 <p><%=link_to user_path(@shop.user) do %>

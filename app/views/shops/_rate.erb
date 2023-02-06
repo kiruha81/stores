@@ -7,3 +7,12 @@
     <i class="far fa-thumbs-up  text-dark"></i>
   <% end %><%= shop.goods.count %>
 <% end %>
+|<% if shop.bad_by?(current_user) %>
+  <%= link_to shop_bads_path(shop), method: :delete, remote: true do %>
+    <i class="fas fa-thumbs-down text-dark"></i>
+  <% end %><%= shop.bads.count %>
+<% else %>
+  <%= link_to shop_bads_path(shop), method: :post, remote: true do %>
+    <i class="far fa-thumbs-down  text-dark"></i>
+  <% end %><%= shop.bads.count %>
+<% end %>

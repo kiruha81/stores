@@ -1,1 +1,1 @@
-$('#goods_buttons_<%= @shop.id %>').html("<%= j(render "goods/good", shop: @shop) %>");
+$('#good_bad_buttons_<%= @shop.id %>').html("<%= j(render "shops/rate", shop: @shop, bad: @bad, good: @good) %>");
